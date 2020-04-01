@@ -12,11 +12,37 @@ app.set('views',path.join(__dirname,'views'));
 
 app.use(express.urlencoded());
 
-
+var complete = ["Finish jquery","learn Api"];
 
 app.get("/", function(req, res) {
-    return res.render('home');
+    tasks.find({},function(err,tasks){
+        if(err){
+            console.log('Error in fetching contacts from db ');
+            return;
+        }
+        return res.render('home',{ 
+            task_list : tasks,
+            complete:complete
+        });
+    });
 });
+var complete = ["Finish jquery","learn Api"];
+
+app.post('/addtask', function (req, res) {
+    tasks.create({
+        newtask:req.body.newtask,
+        tasktype:req.body.tasktype,
+        date:req.body.date
+    },function(err,newTask){
+        if(err){
+            console.log('error in creating todo');
+            return;
+        }
+        console.log('hello',newTask);
+        return res.redirect('back');
+    });
+});
+
 
 
 
