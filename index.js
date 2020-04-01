@@ -43,6 +43,22 @@ app.post('/addtask', function (req, res) {
     });
 });
 
+app.post("/removetask", function(req, res) {
+    var completeTask = req.body.check;
+    console.log(completeTask);
+    if (typeof completeTask === "string") {
+        complete.push(completeTask);
+    } 
+   
+    var id  =req.query.id; 
+    tasks.findByIdAndDelete(id,function(err){
+        if (err){
+            console.log('error in deleting an object from database');
+            return;
+        }
+        return res.redirect('back');
+    });
+});
 
 
 
