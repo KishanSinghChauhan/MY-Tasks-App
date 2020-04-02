@@ -12,7 +12,10 @@ app.set('views',path.join(__dirname,'views'));
 
 app.use(express.urlencoded());
 
-var complete = ["Finish jquery","learn Api"];
+app.use(express.static('assets'));
+
+
+var complete = [];
 
 app.get("/", function(req, res) {
     tasks.find({},function(err,tasks){
@@ -26,7 +29,7 @@ app.get("/", function(req, res) {
         });
     });
 });
-var complete = ["Finish jquery","learn Api"];
+var complete = [];
 
 app.post('/addtask', function (req, res) {
     tasks.create({
@@ -59,6 +62,9 @@ app.post("/removetask", function(req, res) {
         return res.redirect('back');
     });
 });
+
+
+
 
 
 

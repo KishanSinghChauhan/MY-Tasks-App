@@ -1,18 +1,22 @@
 <html>
     <head>
         <title>
-            My TaskList App
+            My TaskList
         </title>
-        
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Handlee&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="/css/home.css">
 
     </head>
     <body>        
-        <h1>Tasks List</h1>
+        <h1 class="animated tada"><i class="fas fa-user-tie fa-lg"></i>&nbsp;&nbsp;My Tasks</h1>
         <form action="/addtask" method="POST">
             <div class="all-main">
                 <div class="main-form">
-                    <h2>ADD Tasks</h2>
+                    <h2 class="animated bounce delay-1s"><i class="fas fa-th-list fa-lg"></i>&nbsp;&nbsp;ADD Tasks</h2>
                     <div>
                         <label for="DESCRIPTION">DESCRIPTION</label><br>
                         <input type="text" name="newtask" placeholder="what do you need to do?" >
@@ -29,11 +33,11 @@
                         <label for="DATE">DUE DATE</label><br>
                         <input type="date" name="date">   
                         <br>
-                        <button type="submit">Add Task</button>
+                        <button class="animated bounce delay-2s" type="submit">Add</button>
                     </div>    
                 </div>   
                 <div class="new-task">
-                    <h2>NEW TASKS </h2>
+                    <h2 class="animated bounce delay-1s"><i class="fas fa-list-alt fa-lg"></i>&nbsp;&nbsp;NEW TASKS </h2>
                     <ul>
                         <% for( let i of task_list){ %>
                         <div>  
@@ -42,7 +46,7 @@
                             </div>
                             <div>
                                 <li> 
-                                    <button  id="btn"formaction="/removetask/?id=<%=i._id%>" type="submit">Delete</button>
+                                    <button class="animated bounce delay-2s" id="btn"formaction="/removetask/?id=<%=i._id%>" type="submit">Delete</button>
                                 </li>
                             </div>
                         </div>
@@ -50,11 +54,12 @@
                     </ul>
                 </div>
                 <div class="comp-task">
-                    <h2>COMPLETED TASK </h2>
+                    <h2 class="animated bounce delay-1s"> <i class="fas fa-check-square fa-lg"></i>&nbsp;&nbsp;COMPLETED TASK </h2>
                     <div>
                         <ul>
                             <% for(var i = 0; i < complete.length; i++){ %>
                             <li>
+                                <i class="fas fa-check-circle fa-lg"></i>
                                 <span id="comp"><%= complete[i] %></span>
                             </li>
                             <% } %>
