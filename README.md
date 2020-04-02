@@ -7,8 +7,11 @@ it will be add on completed task.
 you can add it on your system and add it new things on that:
 
 1. git clone 
+
 2.cd folder
+
 3. npm i 
+
 4.npm start
 
 
